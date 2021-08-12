@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class ChangeOnline extends PerfomRequest
 {
@@ -7,7 +7,7 @@ class ChangeOnline extends PerfomRequest
     public function __construct(array $fields)
     {
         $this->fields = $fields;
-        $this->uri = "http://localhost:8000/api/streamers/changeOnline";
+        $this->uri = 'http://localhost:8000/api/streamers/changeOnline';
     }
 
     public function getRequest(): RequestConnector

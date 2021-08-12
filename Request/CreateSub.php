@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class CreateSub extends PerfomRequest
 {
@@ -7,7 +7,7 @@ class CreateSub extends PerfomRequest
     public function __construct(array $fields)
     {
         $this->fields = $fields;
-        $this->uri = "http://localhost:8000/api/create/sub";
+        $this->uri = 'http://localhost:8000/api/create/sub';
     }
 
     public function getRequest(): RequestConnector

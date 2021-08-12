@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class GetStreamers extends PerfomRequest
 {
@@ -6,8 +6,8 @@ class GetStreamers extends PerfomRequest
 
     public function __construct(array $fields)
     {
-        $this->fields  = $fields;
-        $this->uri = "http://localhost:8000/api/streamers/getAll";
+        $this->fields = $fields;
+        $this->uri = 'http://localhost:8000/api/streamers/getAll';
     }
 
     public function getRequest(): RequestConnector

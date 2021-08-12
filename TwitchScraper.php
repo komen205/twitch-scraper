@@ -2,26 +2,25 @@
 
 use GhostZero\Tmi\Client;
 use GhostZero\Tmi\ClientOptions;
-use GhostZero\Tmi\Events\Twitczh\SubEvent;
 use GhostZero\Tmi\Events\Twitch\AnonSubGiftEvent;
 use GhostZero\Tmi\Events\Twitch\AnonSubMysteryGiftEvent;
 use GhostZero\Tmi\Events\Twitch\ResubEvent;
 use GhostZero\Tmi\Events\Twitch\SubGiftEvent;
 use GhostZero\Tmi\Events\Twitch\SubMysteryGiftEvent;
+use GhostZero\Tmi\Events\Twitczh\SubEvent;
 
 class TwitchIRC
 {
     public static function create()
     {
-
         $client = new Client(new ClientOptions([
-            'options' => ['debug' => false],
+            'options'    => ['debug' => false],
             'connection' => [
-                'secure' => true,
+                'secure'    => true,
                 'reconnect' => true,
-                'rejoin' => true,
+                'rejoin'    => true,
             ],
-            'channels' => [$GLOBALS['streamer']]
+            'channels' => [$GLOBALS['streamer']],
         ]));
 
         /**
@@ -29,7 +28,6 @@ class TwitchIRC
          */
         function giftedRequest($event, $type): void
         {
-
             $fields = ['recipient' => $event->recipient, 'plan' => $event->plan->plan, 'gifttype' => $type, 'gifter' => $event->user];
             CreateRequest::createSub($fields);
         }
@@ -39,7 +37,7 @@ class TwitchIRC
          */
         function subbedRequest($event, $type): void
         {
-            $fields = ['recipient' => $event->user, 'plan' => $event->plan->plan, 'gifttype' => $type, 'gifter' => NULL, 'streamer' => $GLOBALS['streamer']];
+            $fields = ['recipient' => $event->user, 'plan' => $event->plan->plan, 'gifttype' => $type, 'gifter' => null, 'streamer' => $GLOBALS['streamer']];
             dump($fields);
             CreateRequest::createSub($fields);
         }

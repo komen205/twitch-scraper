@@ -1,26 +1,28 @@
 <?php
 
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once('Request/GetStreamers.php');
-require_once('Request/ChangeOnline.php');
-require_once('Request/ChangeStatus.php');
-require_once('Request/CreateSub.php');
-require_once('Request/TwitchOnline.php');
+require_once __DIR__.'/vendor/autoload.php';
+require_once 'Request/GetStreamers.php';
+require_once 'Request/ChangeOnline.php';
+require_once 'Request/ChangeStatus.php';
+require_once 'Request/CreateSub.php';
+require_once 'Request/TwitchOnline.php';
 
 interface RequestConnector
 {
     public function start(): void;
+
     public function finish(): string;
 }
 class PostConnector implements RequestConnector
 {
-    private $fields, $uri;
+    private $fields;
+    private $uri;
+
     public function __construct(array $fields, string $uri)
     {
         $this->fields = $fields;
         $this->uri = $uri;
     }
-
 
     public function start(): void
     {
@@ -39,7 +41,9 @@ class PostConnector implements RequestConnector
 }
 class GetConnector implements RequestConnector
 {
-    private $fields, $uri;
+    private $fields;
+    private $uri;
+
     public function __construct(array $fields, string $uri)
     {
         $this->fields = $fields;
@@ -69,8 +73,7 @@ abstract class PerfomRequest
     {
         $request = $this->getRequest();
         $request->start();
+
         return $request->finish();
     }
 }
-
-
