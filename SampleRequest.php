@@ -1,7 +1,7 @@
 <?php
 
-require_once(__DIR__ . '/vendor/autoload.php');
-require_once('Request.php');
+require_once __DIR__.'/vendor/autoload.php';
+require_once 'Request.php';
 
 function clientCode(PerfomRequest $request)
 {

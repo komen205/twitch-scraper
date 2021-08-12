@@ -7,7 +7,7 @@ class TwitchOnline extends PerfomRequest
     public function __construct(array $fields, string $streamer)
     {
         $this->fields = $fields;
-        $this->uri = "https://api.twitch.tv/helix/streams/?user_login=" . $streamer;
+        $this->uri = 'https://api.twitch.tv/helix/streams/?user_login='.$streamer;
     }
 
     public function getRequest(): RequestConnector
